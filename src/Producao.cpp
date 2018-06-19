@@ -10,6 +10,7 @@ namespace prog3 {
         this->titulo = t;
         this->docente = &d;
         this->qualificada = q;
+        d.adicionaProducao(*this);
     }
 
     Producao::~Producao() {

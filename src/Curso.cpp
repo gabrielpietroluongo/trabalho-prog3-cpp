@@ -15,7 +15,13 @@ namespace prog3 {
     Curso::~Curso() {
 
     }
+
     int Curso::getCodigo() {
         return this->codigo;
     }
+
+    void Curso::adicionaDiscente(Discente& d) {
+        this->discentes.push_back(&d);
+    }
+
 }

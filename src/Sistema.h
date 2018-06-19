@@ -5,9 +5,11 @@
 #ifndef TRABALHO_PROG3_SISTEMA_H
 #define TRABALHO_PROG3_SISTEMA_H
 
+//Includes do sistema
 #include "Docente.h"
 #include "Curso.h"
 #include "Producao.h"
+#include "Discente.h"
 
 namespace prog3 {
 
