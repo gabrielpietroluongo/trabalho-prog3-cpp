@@ -16,6 +16,10 @@
 #include "Producao.h"
 #include "Discente.h"
 #include "Atividade.h"
+#include "Disciplina.h"
+#include "Orientacao.h"
+#include "OrientaGrad.h"
+#include "OrientaPos.h"
 
 namespace prog3 {
 
@@ -34,10 +38,10 @@ namespace prog3 {
         void adicionaDiscente(long matricula, string nome, int codigoCurso);
         void adicionaProducao(int codigo, string titulo, bool qualificada);
         void adicionaCurso(int codigo, string nome, bool grad);
-        void adicionaDisciplina(int codigoMateria, string nome, int codigoDocente, int cargaSemanal,
+        void adicionaDisciplina(string codigoMateria, string nome, int codigoDocente, int cargaSemanal,
                                 int cargaSemestral, int codigoCurso);
         void adicionaOrientacaoGrad(int codigoDocente, long matriculaDiscente, int codigoCurso, int cargaSemanal);
-        void adicionaOrientacaoPos(int codigoDocente, int matriculaDiscente, int dataIngresso,
+        void adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, int dataIngresso,
                                    string programa, int cargaSemanal);
 
     };
