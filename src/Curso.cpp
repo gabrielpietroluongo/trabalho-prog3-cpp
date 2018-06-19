@@ -28,4 +28,8 @@ namespace prog3 {
         this->disciplinas.push_back(&d);
     }
 
+    void Curso::adicionaOrientaGrad(OrientaGrad& o) {
+        this->orientacoesGrad.push_back(&o);
+    }
+
 }

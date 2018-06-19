@@ -15,8 +15,8 @@ namespace prog3 {
 
     //Forward declaration
     class Discente;
-
     class Disciplina;
+    class OrientaGrad;
 
     class Curso {
     private:
@@ -25,12 +25,14 @@ namespace prog3 {
         bool grad;
         vector<Discente*> discentes;
         vector<Disciplina*> disciplinas;
+        vector<OrientaGrad*> orientacoesGrad;
     public:
         Curso(string = "", int = 0, bool = false);
         ~Curso();
         int getCodigo();
         void adicionaDiscente(Discente &d);
         void adicionaDisciplina(Disciplina& d);
+        void adicionaOrientaGrad(OrientaGrad& o);
     };
 
 }
