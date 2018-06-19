@@ -7,6 +7,7 @@
 
 #include <string>
 #include <iostream>
+#include <map>
 
 using namespace std;
 
@@ -19,11 +20,14 @@ public:
     string fname_disciplina;
     string fname_ograd;
     string fname_opos;
+private:
+    map<string, string> args;
 public:
     ArgParse();
     ~ArgParse();
     void parse(int argc, char** argv);
     void debug();
+    map<string, string> getArgs();
 };
 
 

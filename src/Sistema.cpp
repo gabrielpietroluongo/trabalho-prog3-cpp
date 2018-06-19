@@ -6,15 +6,44 @@
 
 namespace prog3 {
 
-    Sistema::Sistema() {
-        //Void?
+    Sistema::Sistema(map<string, string> args) {
+        // WIP
+        map<string, string>::iterator it;
+        string n = "-og";
+        it = args.find(n);
+        std::cout << args.find(n)->second << endl;
+        /*
+        if(arg == "-d") {
+            this->fname_docente = fname;
+        }
+        else if (arg == "-a") {
+            this->fname_discente = fname;
+        }
+        else if(arg == "-p") {
+            this->fname_producao = fname;
+        }
+        else if(arg == "-c") {
+            this->fname_curso = fname;
+        }
+        else if(arg == "-r") {
+            this->fname_disciplina = fname;
+        }
+        else if(arg == "-og") {
+            this->fname_ograd = fname;
+        }
+        else if(arg == "-op") {
+            this->fname_opos = fname;
+        }
+        else {
+            throw exception();
+        }*/
     }
 
     Sistema::~Sistema() {
         //TODO
     }
 
-    void Sistema::WIP_carrega_dados() {
+    void Sistema::WIP_carrega_dados(map<string*, string*> args) {
 
     }
 

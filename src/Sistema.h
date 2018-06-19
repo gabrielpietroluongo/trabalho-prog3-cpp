@@ -31,9 +31,9 @@ namespace prog3 {
         map<long, Discente*> discentes;
         vector<Atividade*> atividades;
     public:
-        Sistema();
+        Sistema(map<string, string> args);
         ~Sistema();
-        void WIP_carrega_dados();
+        void WIP_carrega_dados(map<string*, string*> args);
         void adicionaDocente(int codigo, string nome, string departamento);
         void adicionaDiscente(long matricula, string nome, int codigoCurso);
         void adicionaProducao(int codigo, string titulo, bool qualificada);
