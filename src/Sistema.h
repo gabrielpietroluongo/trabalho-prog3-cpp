@@ -7,6 +7,7 @@
 
 #include "Docente.h"
 #include "Curso.h"
+#include "Producao.h"
 
 namespace prog3 {
 

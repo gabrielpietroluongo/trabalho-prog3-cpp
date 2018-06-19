@@ -27,6 +27,10 @@ namespace prog3 {
         return ret;
     }
 
+    void Docente::adicionaProducao(Producao& p) {
+        this->producoes.push_back(&p);
+    }
+
     ostream &operator<<(ostream &os, const Docente &doc) {
         os << "Nome: " << doc.nome << "\nCodigo: " << doc.codigo << "\nDepartamento: " << doc.departamento;
 
