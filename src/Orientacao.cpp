@@ -9,5 +9,7 @@ namespace prog3 {
         this->discente = &discente;
         this->discente->adicionaOrientacao(*this);
     }
+    Orientacao::~Orientacao() {
 
+    }
 }

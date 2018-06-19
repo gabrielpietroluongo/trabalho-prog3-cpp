@@ -20,6 +20,7 @@ namespace prog3 {
         Discente* discente;
     public:
         Orientacao(Docente& docente, int cargaSemanal, Discente& discente);
+        ~Orientacao();
     };
 }
 
