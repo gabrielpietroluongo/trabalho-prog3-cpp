@@ -10,7 +10,7 @@ namespace prog3 {
         this->curso = &curso;
     }
 
-    ~OrientaGrad() {
+    OrientaGrad::~OrientaGrad() {
 
     }
 }
