@@ -11,6 +11,7 @@
 #include "Producao.h"
 #include "Discente.h"
 #include "Atividade.h"
+#include "Disciplina.h"
 
 namespace prog3 {
 

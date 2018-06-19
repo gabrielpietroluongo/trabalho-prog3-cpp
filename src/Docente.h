@@ -4,7 +4,6 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "Sistema.h"
 
 using namespace std;
 

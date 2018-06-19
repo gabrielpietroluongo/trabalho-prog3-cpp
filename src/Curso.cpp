@@ -24,4 +24,8 @@ namespace prog3 {
         this->discentes.push_back(&d);
     }
 
+    void Curso::adicionaDisciplina(Disciplina& d) {
+        this->disciplinas.push_back(&d);
+    }
+
 }

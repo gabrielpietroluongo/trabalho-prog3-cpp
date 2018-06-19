@@ -9,8 +9,6 @@
 #include <iostream>
 #include <vector>
 
-#include "Sistema.h"
-
 using namespace std;
 
 namespace prog3 {
@@ -18,17 +16,21 @@ namespace prog3 {
     //Forward declaration
     class Discente;
 
+    class Disciplina;
+
     class Curso {
     private:
         int codigo;
         string nome;
         bool grad;
         vector<Discente*> discentes;
+        vector<Disciplina*> disciplinas;
     public:
         Curso(string = "", int = 0, bool = false);
         ~Curso();
         int getCodigo();
         void adicionaDiscente(Discente &d);
+        void adicionaDisciplina(Disciplina& d);
     };
 
 }

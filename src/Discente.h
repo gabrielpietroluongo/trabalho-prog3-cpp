@@ -7,8 +7,9 @@
 
 #include <string>
 #include <iostream>
+#include "Curso.h"
 
-#include "Sistema.h"
+using namespace std;
 
 namespace prog3 {
 

@@ -7,8 +7,7 @@
 
 #include <string>
 #include <iostream>
-
-#include "Sistema.h"
+#include "Docente.h"
 
 using namespace std;
 

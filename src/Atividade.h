@@ -7,9 +7,7 @@
 
 #include <iostream>
 #include <string>
-
-
-#include "Sistema.h"
+#include "Docente.h"
 
 namespace prog3 {
 
@@ -22,7 +20,6 @@ namespace prog3 {
         Docente* docente;
     public:
         Atividade(Docente&, int = 0);
-
         ~Atividade();
     };
 }
