@@ -16,4 +16,9 @@ namespace prog3 {
     Discente::~Discente() {
 
     }
+
+    void Discente::adicionaOrientacao(Orientacao& o) {
+        this->orientacoes.push_back(&o);
+    }
+
 }

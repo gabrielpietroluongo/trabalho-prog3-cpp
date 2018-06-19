@@ -16,7 +16,7 @@ namespace prog3 {
         this->cargaSemestral = cSemestral;
         cur.adicionaDisciplina(*this);
     }
-    
+
     Disciplina::~Disciplina() {
 
     }
