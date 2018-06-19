@@ -12,6 +12,7 @@ namespace prog3 {
 
     //Forward declaration
     class Producao;
+    class Atividade;
 
     class Docente {
     private:
@@ -19,6 +20,8 @@ namespace prog3 {
         string nome;
         string departamento;
         vector<Producao*> producoes;
+        vector<Atividade*> atividades;
+
     public:
         Docente(int = 0, string = "", string = "");
 
@@ -28,7 +31,9 @@ namespace prog3 {
 
         string to_string();
 
-        void adicionaProducao(Producao& p);
+        void adicionaProducao(Producao&);
+
+        void adicionaAtividade(Atividade&);
 
         // Operator overloads
         friend ostream &operator<<(ostream &os, const Docente &doc);

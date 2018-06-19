@@ -31,6 +31,9 @@ namespace prog3 {
         this->producoes.push_back(&p);
     }
 
+    void Docente::adicionaAtividade(Atividade& a) {
+        this->atividades.push_back(&a);
+    }
     ostream &operator<<(ostream &os, const Docente &doc) {
         os << "Nome: " << doc.nome << "\nCodigo: " << doc.codigo << "\nDepartamento: " << doc.departamento;
 
