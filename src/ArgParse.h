@@ -12,21 +12,12 @@
 using namespace std;
 
 class ArgParse {
-public:
-    string fname_docente;
-    string fname_discente;
-    string fname_producao;
-    string fname_curso;
-    string fname_disciplina;
-    string fname_ograd;
-    string fname_opos;
 private:
     map<string, string> args;
 public:
     ArgParse();
     ~ArgParse();
     void parse(int argc, char** argv);
-    void debug();
     map<string, string> getArgs();
 };
 

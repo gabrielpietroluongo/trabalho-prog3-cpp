@@ -21,16 +21,6 @@ void ArgParse::parse(int argc, char** argv) {
 	this->args[arg] = fname;
     }
 }
-void ArgParse::debug() {
-    cout << this->fname_docente << endl;
-    cout << this->fname_discente << endl;
-    cout << this->fname_producao << endl;
-    cout << this->fname_curso << endl;
-    cout << this->fname_disciplina << endl;
-    cout << this->fname_ograd << endl;
-    cout << this->fname_opos << endl;
-
-}
 
 map<string, string> ArgParse::getArgs() {
     return this->args;
