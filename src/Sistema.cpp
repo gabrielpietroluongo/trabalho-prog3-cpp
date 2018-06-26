@@ -8,11 +8,8 @@ namespace prog3 {
 
     Sistema::Sistema(map<string, string> args) {
         // WIP
-        map<string, string>::iterator it;
-        string n = "-og";
-        it = args.find(n);
-        std::cout << args.find(n)->second << endl;
-        /*
+        cout << args["-og"] << endl;
+	/*
         if(arg == "-d") {
             this->fname_docente = fname;
         }

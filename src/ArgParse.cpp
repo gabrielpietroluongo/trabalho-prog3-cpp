@@ -18,7 +18,7 @@ void ArgParse::parse(int argc, char** argv) {
         string arg = argv[i];
         i++;
         string fname = argv[i];
-        this->args.insert(pair<string, string>(arg, fname));
+	this->args[arg] = fname;
     }
 }
 void ArgParse::debug() {

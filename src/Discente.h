@@ -26,7 +26,7 @@ namespace prog3 {
         Curso* curso;
         vector<Orientacao*> orientacoes;
     public:
-        Discente(string = "", long = 0, Curso* = nullptr);
+        Discente(string = "", long = 0, Curso* = NULL);
         ~Discente();
         void adicionaOrientacao(Orientacao& o);
     };
