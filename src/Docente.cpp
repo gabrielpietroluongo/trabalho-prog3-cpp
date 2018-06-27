@@ -36,10 +36,11 @@ namespace prog3 {
     }
     ostream &operator<<(ostream &os, const Docente &doc) {
         os << "Nome: " << doc.nome << "\nCodigo: " << doc.codigo << "\nDepartamento: " << doc.departamento;
-
+        return os;
     }
 
     ostream &operator<<(ostream &os, const Docente* doc) {
         os << "Nome: " << doc->nome << "\nCodigo: " << doc->codigo << "\nDepartamento: " << doc->departamento;
+        return os;
     }
 }
