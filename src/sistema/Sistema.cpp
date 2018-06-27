@@ -9,6 +9,7 @@ namespace prog3 {
     Sistema::Sistema(map<string, string> args) {
         // WIP
         cout << args["-og"] << endl;
+        cout << args["-op"] << endl;
 	/*
         if(arg == "-d") {
             this->fname_docente = fname;
