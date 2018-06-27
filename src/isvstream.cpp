@@ -6,4 +6,12 @@
 //  Copyright © 2018 Gabriel Pietroluongo. All rights reserved.
 //
 
-#include "isvstream.hpp"
+#include "isvstream.h"
+
+icstream::icstream(string inputFile) {
+    this->inputStream = new ifstream(inputFile);
+}
+
+icstream::~icstream() {
+    delete this->inputStream;
+}
