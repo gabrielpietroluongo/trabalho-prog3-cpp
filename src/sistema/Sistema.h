@@ -41,7 +41,7 @@ namespace prog3 {
         void adicionaDisciplina(string codigoMateria, string nome, int codigoDocente, int cargaSemanal,
                                 int cargaSemestral, int codigoCurso);
         void adicionaOrientacaoGrad(int codigoDocente, long matriculaDiscente, int codigoCurso, int cargaSemanal);
-        void adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, int dataIngresso,
+        void adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, string dataIngresso,
                                    string programa, int cargaSemanal);
 
     };

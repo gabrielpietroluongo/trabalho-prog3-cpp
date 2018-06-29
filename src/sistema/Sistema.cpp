@@ -78,7 +78,7 @@ namespace prog3 {
         this->atividades.push_back(o);
     }
 
-    void Sistema::adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, int dataIngresso,
+    void Sistema::adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, string dataIngresso,
                                string programa, int cargaSemanal) {
         OrientaPos* o = new OrientaPos(*this->docentes[codigoDocente], cargaSemanal, *this->discentes[matriculaDiscente],
                                        dataIngresso, programa);

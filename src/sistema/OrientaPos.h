@@ -7,6 +7,8 @@
 
 #include <string>
 #include <iostream>
+#include <ctime>
+#include "../utils/cpp_utils/DateUtils.h"
 
 #include "Orientacao.h"
 
@@ -14,10 +16,10 @@ namespace prog3 {
 
     class OrientaPos : public Orientacao {
     private:
-        int dataIngresso;
+        time_t dataIngresso;
         string programa;
     public:
-        OrientaPos(Docente& docente, int cargaSemanal, Discente& discente, int dataIngresso, string programa);
+        OrientaPos(Docente& docente, int cargaSemanal, Discente& discente, string dataIngresso, string programa);
         ~OrientaPos();
     };
 
