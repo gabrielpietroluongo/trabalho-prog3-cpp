@@ -21,6 +21,9 @@
 #include "OrientaGrad.h"
 #include "OrientaPos.h"
 
+
+#include "../utils/isvstream.h"
+
 namespace prog3 {
 
     class Sistema {

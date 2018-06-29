@@ -8,6 +8,10 @@ namespace prog3 {
 
     Sistema::Sistema(map<string, string> args) {
         // WIP
+    	icstream i = icstream(args["-d"]);
+    	for(auto elem : i.getData()) {
+    		adicionaDocente(atoi(elem[0].c_str()), elem[1], elem[2]);
+    	}
         cout << args["-og"] << endl;
         cout << args["-op"] << endl;
 	/*

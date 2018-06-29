@@ -23,6 +23,6 @@ icstream::~icstream() {
     delete this->inputStream;
 }
 
-vector<vector<string>> icstream::get_data() {
+vector<vector<string>> icstream::getData() {
 	return this->data;
 }

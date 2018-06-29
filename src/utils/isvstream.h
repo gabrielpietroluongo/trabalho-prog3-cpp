@@ -26,7 +26,7 @@ private:
 public:
     icstream(string inputFile);
     ~icstream();
-    vector<vector<string>> get_data();
+    vector<vector<string>> getData();
 };
 
 #endif /* isvstream_hpp */
