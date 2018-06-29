@@ -82,5 +82,6 @@ namespace prog3 {
                                string programa, int cargaSemanal) {
         OrientaPos* o = new OrientaPos(*this->docentes[codigoDocente], cargaSemanal, *this->discentes[matriculaDiscente],
                                        dataIngresso, programa);
+        this->atividades.push_back(o);
     }
 }

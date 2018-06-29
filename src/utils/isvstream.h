@@ -14,6 +14,8 @@
 #include <string>
 #include <vector>
 
+#include "cpp_utils/Tokenizer.h"
+
 using namespace std;
 
 class icstream {
@@ -24,6 +26,7 @@ private:
 public:
     icstream(string inputFile);
     ~icstream();
+    vector<vector<string>> get_data();
 };
 
 #endif /* isvstream_hpp */
