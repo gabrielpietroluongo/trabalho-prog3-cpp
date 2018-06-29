@@ -98,3 +98,4 @@ CMakeLists.txt
 *.exe
 *.out
 *.app
+/Debug/

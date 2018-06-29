@@ -7,38 +7,65 @@
 namespace prog3 {
 
     Sistema::Sistema(map<string, string> args) {
-        // WIP
-    	icstream i = icstream(args["-d"]);
-    	for(auto elem : i.getData()) {
+
+    	// Docente
+    	icstream* stream = new icstream(args["-d"]);
+    	for(auto elem : stream->getData()) {
     		adicionaDocente(atoi(elem[0].c_str()), elem[1], elem[2]);
     	}
-        cout << args["-og"] << endl;
-        cout << args["-op"] << endl;
-	/*
-        if(arg == "-d") {
-            this->fname_docente = fname;
-        }
-        else if (arg == "-a") {
-            this->fname_discente = fname;
-        }
-        else if(arg == "-p") {
-            this->fname_producao = fname;
-        }
-        else if(arg == "-c") {
-            this->fname_curso = fname;
-        }
-        else if(arg == "-r") {
-            this->fname_disciplina = fname;
-        }
-        else if(arg == "-og") {
-            this->fname_ograd = fname;
-        }
-        else if(arg == "-op") {
-            this->fname_opos = fname;
-        }
-        else {
-            throw exception();
-        }*/
+    	delete stream;
+
+    	// Produção
+    	stream = new icstream(args["-p"]);
+    	for(auto elem : stream->getData()) {
+    		bool qualificada = false;
+    		if(stream->getData().size() == 3) {
+    			if(elem[3] == "X") {
+    				qualificada = true;
+    			}
+    		}
+    		adicionaProducao(atoi(elem[0].c_str()), elem[1], qualificada);
+    	}
+    	delete stream;
+
+    	// Curso
+    	stream = new icstream(args["-c"]);
+    	for(auto elem : stream->getData()) {
+    		bool grad = false;
+    		if(elem[3] == "X") {
+    			grad = true;
+			}
+    		adicionaCurso(atoi(elem[0].c_str()), elem[1], grad);
+    	}
+    	delete stream;
+
+    	// Discente
+    	stream = new icstream(args["-a"]);
+		for(auto elem : stream->getData()) {
+			adicionaDiscente(atol(elem[0].c_str()), elem[1], atoi(elem[2].c_str()));
+		}
+		delete stream;
+
+		// Disciplinas
+		stream = new icstream(args["-r"]);
+		for(auto elem : stream->getData()) {
+			adicionaDisciplina(elem[0], elem[1], atoi(elem[2].c_str()), atoi(elem[3].c_str()), atoi(elem[4].c_str()), atoi(elem[5].c_str()));
+		}
+		delete stream;
+
+		// Orientação graduação
+		stream = new icstream(args["-og"]);
+		for(auto elem : stream->getData()) {
+			adicionaOrientacaoGrad(atoi(elem[0].c_str()), atol(elem[1].c_str()), atoi(elem[2].c_str()), atoi(elem[3].c_str()));
+		}
+		delete stream;
+
+		// Orientação graduação
+		stream = new icstream(args["-og"]);
+		for(auto elem : stream->getData()) {
+			adicionaOrientacaoPos(atoi(elem[0].c_str()), atol(elem[1].c_str()), elem[2], elem[3], atoi(elem[4].c_str()));
+		}
+		delete stream;
     }
 
     Sistema::~Sistema() {
@@ -47,6 +74,9 @@ namespace prog3 {
 
     void Sistema::WIP_carrega_dados(map<string*, string*> args) {
 
+    }
+
+    void Sistema::WIP_Debug() {
     }
 
     void Sistema::adicionaDocente(int codigo, string nome, string departamento) {
