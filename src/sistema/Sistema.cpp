@@ -10,8 +10,9 @@ namespace prog3 {
 
     	// Docente
     	icstream* stream = new icstream(args["-d"]);
-    	for(auto elem : stream->getData()) {
-    		adicionaDocente(atoi(elem[0].c_str()), elem[1], elem[2]);
+    	for(vector<string> vec : stream->getData()) {
+            adicionaDocente(stoi(vec[0]), vec[1], vec[2]);
+
     	}
     	delete stream;
 
@@ -24,7 +25,7 @@ namespace prog3 {
     				qualificada = true;
     			}
     		}
-    		adicionaProducao(atoi(elem[0].c_str()), elem[1], qualificada);
+    		adicionaProducao(stoi(elem[0]), elem[1], qualificada);
     	}
     	delete stream;
 
@@ -35,35 +36,35 @@ namespace prog3 {
     		if(elem[3] == "X") {
     			grad = true;
 			}
-    		adicionaCurso(atoi(elem[0].c_str()), elem[1], grad);
+    		adicionaCurso(stoi(elem[0]), elem[1], grad);
     	}
     	delete stream;
 
     	// Discente
     	stream = new icstream(args["-a"]);
 		for(auto elem : stream->getData()) {
-			adicionaDiscente(atol(elem[0].c_str()), elem[1], atoi(elem[2].c_str()));
+			adicionaDiscente(stol(elem[0]), elem[1], stoi(elem[2]));
 		}
 		delete stream;
 
 		// Disciplinas
 		stream = new icstream(args["-r"]);
 		for(auto elem : stream->getData()) {
-			adicionaDisciplina(elem[0], elem[1], atoi(elem[2].c_str()), atoi(elem[3].c_str()), atoi(elem[4].c_str()), atoi(elem[5].c_str()));
+			adicionaDisciplina(elem[0], elem[1], stoi(elem[2]), stoi(elem[3]), stoi(elem[4]), stoi(elem[5]));
 		}
 		delete stream;
 
 		// Orientação graduação
 		stream = new icstream(args["-og"]);
 		for(auto elem : stream->getData()) {
-			adicionaOrientacaoGrad(atoi(elem[0].c_str()), atol(elem[1].c_str()), atoi(elem[2].c_str()), atoi(elem[3].c_str()));
+			adicionaOrientacaoGrad(stoi(elem[0]), stol(elem[1]), stoi(elem[2]), stoi(elem[3]));
 		}
 		delete stream;
 
 		// Orientação pós
 		stream = new icstream(args["-op"]);
 		for(auto elem : stream->getData()) {
-			adicionaOrientacaoPos(atoi(elem[0].c_str()), atol(elem[1].c_str()), elem[2], elem[3], atoi(elem[4].c_str()));
+			adicionaOrientacaoPos(stoi(elem[0]), stol(elem[1]), elem[2], elem[3], stoi(elem[4]));
 		}
 		delete stream;
     }
