@@ -60,8 +60,8 @@ namespace prog3 {
 		}
 		delete stream;
 
-		// Orientação graduação
-		stream = new icstream(args["-og"]);
+		// Orientação pós
+		stream = new icstream(args["-op"]);
 		for(auto elem : stream->getData()) {
 			adicionaOrientacaoPos(atoi(elem[0].c_str()), atol(elem[1].c_str()), elem[2], elem[3], atoi(elem[4].c_str()));
 		}
