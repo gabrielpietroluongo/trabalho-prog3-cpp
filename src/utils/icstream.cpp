@@ -6,7 +6,7 @@
 //  Copyright © 2018 Gabriel Pietroluongo. All rights reserved.
 //
 
-#include "isvstream.h"
+#include "icstream.h"
 
 icstream::icstream(string inputFile) {
     this->inputStream = new ifstream(inputFile);

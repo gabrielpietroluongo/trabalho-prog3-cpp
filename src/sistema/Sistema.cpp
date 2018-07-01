@@ -41,7 +41,7 @@ namespace prog3 {
 
     	// Discente
     	stream = new icstream(args["-a"]);
-		faor(auto elem : stream->getData()) {
+		for(auto elem : stream->getData()) {
 			adicionaDiscente(atol(elem[0].c_str()), elem[1], atoi(elem[2].c_str()));
 		}
 		delete stream;

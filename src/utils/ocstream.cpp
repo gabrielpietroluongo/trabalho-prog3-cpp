@@ -6,7 +6,7 @@
 //  Copyright © 2018 Gabriel Pietroluongo. All rights reserved.
 //
 
-#include "osvstream.h"
+#include "ocstream.h"
 
 ocstream::ocstream(string outputFile) {
     this->outputStream = new ofstream(outputFile);
