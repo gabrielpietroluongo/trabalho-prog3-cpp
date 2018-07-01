@@ -43,5 +43,10 @@ namespace prog3 {
         os << "Nome: " << doc->nome << "\nCodigo: " << doc->codigo << "\nDepartamento: " << doc->departamento;
         return os;
     }
+
+    bool operator<(Docente const& a, Docente const& b) {
+        cpp_util::stringCompare(a.nome, b.nome);
+    }
+
 }
 

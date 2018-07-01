@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 
+#include "../utils/cpp_utils/StringUtils.h"
+
 using namespace std;
 
 namespace prog3 {
@@ -38,6 +40,9 @@ namespace prog3 {
         friend ostream &operator<<(ostream &os, const Docente &doc);
 
         friend ostream &operator<<(ostream &os, const Docente *doc);
+
+        friend bool operator<(Docente const& a, Docente const& b);
+
     };
 
 }

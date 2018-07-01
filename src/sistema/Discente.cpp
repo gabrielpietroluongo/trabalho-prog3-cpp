@@ -21,4 +21,21 @@ namespace prog3 {
         this->orientacoes.push_back(&o);
     }
 
+    ostream &operator<<(ostream &os, const Discente &dis) {
+        os << "Nome: " << dis.nome << "\nMatricula: " << dis.matricula << "\nCurso: " << dis.curso->getCodigo() << "\nOrientacoes: ";
+        for(auto o : dis.orientacoes)
+        {
+            std::cout << "\n" << o;
+        }
+        return os;
+    }
+
+    ostream &operator<<(ostream &os, const Discente* dis) {
+        os << "Nome: " << dis->nome << "\nMatricula: " << dis->matricula << "\nCurso: " << dis->curso->getCodigo() << "\n Orientacoes: ";
+        for(auto o : dis->orientacoes)
+        {
+            std::cout << "\n" << o;
+        }
+        return os;
+    }
 }

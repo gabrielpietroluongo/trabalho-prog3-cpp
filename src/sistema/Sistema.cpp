@@ -2,6 +2,7 @@
 // Created by gabriel on 18/06/18.
 //
 
+#include <algorithm>
 #include "Sistema.h"
 
 namespace prog3 {
@@ -78,6 +79,14 @@ namespace prog3 {
     }
 
     void Sistema::WIP_Debug() {
+        for(auto it = this->docentes.cbegin(); it != this->docentes.cend(); ++it)
+        {
+            std::cout << it->second << "\n";
+        }
+        for(auto it = this->discentes.cbegin(); it != this->discentes.cend(); ++it)
+        {
+            std::cout << it->second << "\n";
+        }
     }
 
     void Sistema::adicionaDocente(int codigo, string nome, string departamento) {
@@ -118,5 +127,17 @@ namespace prog3 {
         OrientaPos* o = new OrientaPos(*this->docentes[codigoDocente], cargaSemanal, *this->discentes[matriculaDiscente],
                                        dataIngresso, programa);
         this->atividades.push_back(o);
+    }
+
+	void Sistema::geraPADESalva() {
+    	vector<Docente> docentes;
+		for(auto it = this->docentes.cbegin(); it != this->docentes.cend(); ++it)
+		{
+			docentes.push_back(*(it->second));
+		}
+		sort(docentes.begin(), docentes.end());
+		for(auto d : docentes) {
+			cout << d;
+		}
     }
 }

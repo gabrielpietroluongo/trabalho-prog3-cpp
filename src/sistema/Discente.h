@@ -29,6 +29,12 @@ namespace prog3 {
         Discente(string = "", long = 0, Curso* = NULL);
         ~Discente();
         void adicionaOrientacao(Orientacao& o);
+
+        // Operator overloads
+        friend ostream &operator<<(ostream &os, const Discente &dis);
+
+        friend ostream &operator<<(ostream &os, const Discente *dis);
+
     };
 
 }

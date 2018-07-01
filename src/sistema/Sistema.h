@@ -49,7 +49,7 @@ namespace prog3 {
         void adicionaOrientacaoGrad(int codigoDocente, long matriculaDiscente, int codigoCurso, int cargaSemanal);
         void adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, string dataIngresso,
                                    string programa, int cargaSemanal);
-
+        void geraPADESalva();
     };
 
 }
