@@ -24,7 +24,7 @@ public:
     ocstream(string outputFile);
     ~ocstream();
 
-    void escrever(vector<string> data);
+    void escreve(vector<string> data);
 };
 
 #endif /* osvstream_hpp */

@@ -13,12 +13,13 @@ ocstream::ocstream(string outputFile) {
 
     }
 
-void ocstream::escrever(vector<string> data){
-	int tam = data.size();
-	for(int i=0; i<tam; i++){
-
+void ocstream::escreve(vector<string> data){
+    for(auto elem : data){
+        *(this->outputStream) << elem;
+        if(elem != data[data.size()])
+            *(this->outputStream) << ";";
 	}
-
+    *(this->outputStream) << "\n";
 }
 
 ocstream::~ocstream() {
