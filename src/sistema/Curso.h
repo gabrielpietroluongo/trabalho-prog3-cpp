@@ -19,7 +19,17 @@ namespace prog3 {
     class Disciplina;
     class OrientaGrad;
     class Docente;
-
+     /**
+     *****************************************************************************************
+     *  @brief      Classe de domínio Curso
+     *
+     *  @usage       Utilizada na classe de domínio sistema
+     *
+     *  @param      string Nome do curso
+     *  @param      int Código do curso
+     *  @param      bool É curso de graduação?
+     *
+     ****************************************************************************************/
     class Curso {
     private:
         int codigo;

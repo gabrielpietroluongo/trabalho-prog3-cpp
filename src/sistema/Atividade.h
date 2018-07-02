@@ -1,7 +1,3 @@
-//
-// Created by gabriel on 18/06/18.
-//
-
 #ifndef TRABALHO_PROG3_ATIVIDADE_H
 #define TRABALHO_PROG3_ATIVIDADE_H
 
@@ -13,7 +9,16 @@ namespace prog3 {
 
     //Forward declaration
     class Docente;
-
+     /**
+     *****************************************************************************************
+     *  @brief      Classe de domínio Atividade
+     *
+     *  @usage       Utilizada na classe de domínio sistema
+     *
+     *  @param      Docente& docente relacionado à atividade
+     *  @param      int Carga Horária Semanal relacionada à atividade
+     *
+     ****************************************************************************************/
     class Atividade {
     private:
         int cargaSemanal;

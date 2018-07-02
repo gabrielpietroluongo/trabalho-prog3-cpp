@@ -5,7 +5,15 @@
 #include "Discente.h"
 
 namespace prog3 {
-
+    /**
+     *****************************************************************************************
+     *  @brief      Construtor da classe
+     *
+     *  @param      string Nome do discente
+     *  @param      long Matrícula do discente
+     *  @param      Curso* Curso do discente
+     *
+     ****************************************************************************************/
     Discente::Discente(string n, long m, Curso* c) {
         this->nome = n;
         this->matricula = m;

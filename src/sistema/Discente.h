@@ -18,7 +18,17 @@ namespace prog3 {
     //Forward declaration
     class Curso;
     class Orientacao;
-
+    /**
+     *****************************************************************************************
+     *  @brief      Classe de domínio Atividade
+     *
+     *  @usage      Utilizada na classe de domínio sistema
+     *
+     *  @param      string Nome do discente
+     *  @param      long Matrícula do discente
+     *  @param      Curso* Curso do discente
+     *
+     ****************************************************************************************/
     class Discente {
     private:
         string nome;
