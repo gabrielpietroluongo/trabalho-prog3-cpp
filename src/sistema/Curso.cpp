@@ -32,4 +32,8 @@ namespace prog3 {
         this->orientacoesGrad.push_back(&o);
     }
 
+    void Curso::adicionaHorasADocente(Docente& doc, int val) {
+        this->horasDocente[&doc] += val;
+    }
+
 }

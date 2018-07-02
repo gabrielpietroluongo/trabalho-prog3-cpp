@@ -9,6 +9,8 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <algorithm>
+#include "../utils/cpp_utils/StringUtils.h"
 
 //Includes do sistema
 #include "Docente.h"
@@ -50,6 +52,7 @@ namespace prog3 {
         void adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, string dataIngresso,
                                    string programa, int cargaSemanal);
         void geraPADESalva();
+        void geraRHAESalva();
         void geraAlocacaoESalva();
         void geraPPGESalva();
     };

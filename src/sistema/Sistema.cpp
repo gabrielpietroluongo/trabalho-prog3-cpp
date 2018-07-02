@@ -145,6 +145,55 @@ namespace prog3 {
 			out.escreve(d.getCSVData());
 		}
     }
+
+    struct outputData {
+        vector<string> data;
+    };
+    
+    bool compareData(const outputData &a, const outputData &b)
+    {
+        if(a.data[0] == b.data[0]) {
+            if(a.data[1] == b.data[1]) {
+                return cpp_util::stringCompare(a.data[3], b.data[3]);
+            }
+            else {
+                return cpp_util::stringCompare(a.data[1], b.data[1]);
+            }
+        } else {
+            return cpp_util::stringCompare(a.data[0], b.data[0]);
+        }
+    }
+
+    void Sistema::geraRHAESalva() {
+        ocstream out = ocstream("2-rha.csv");
+        out.escreve(vector<string> {"Departamento", "Docente", "Cod. Curso", "Curso", "Horas Semestrais Aula"});
+        vector<outputData> data;
+        for(auto it = this->cursos.cbegin(); it != this->cursos.cend(); ++it)
+        {
+            Curso* c = it->second;
+            map<Docente*, int>* horasDoc = c->getMap();
+            for(auto it2 = horasDoc->cbegin(); it2 != horasDoc->cend(); ++it2) {
+                vector<string> v = {
+                        it2->first->getDepartamento(),
+                        it2->first->getNome(),
+                        std::to_string(c->getCodigo()),
+                        c->getNome(),
+                        std::to_string(it2->second)
+                };
+                outputData d;
+                d.data = v;
+                data.push_back(d);
+            }
+        }
+
+        std::sort(data.begin(), data.end(), compareData);
+
+        for(auto elem : data) {
+            out.escreve(elem.data);
+        }
+
+    }
+
     void Sistema::geraAlocacaoESalva() {
         ocstream out = ocstream("3-alocacao.csv");
         out.escreve(vector<string> {"Docente", "Codigo", "Nome", "Carga Horaria Semestral"});

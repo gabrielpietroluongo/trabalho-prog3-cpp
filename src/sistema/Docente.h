@@ -37,6 +37,8 @@ namespace prog3 {
 
         string getNome();
 
+        string getDepartamento() { return this->departamento; }
+
         void adicionaProducao(Producao&);
 
         void adicionaAtividade(Atividade&);

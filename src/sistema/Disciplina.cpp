@@ -15,6 +15,7 @@ namespace prog3 {
         this->codigo = c;
         this->cargaSemestral = cSemestral;
         cur.adicionaDisciplina(*this);
+        cur.adicionaHorasADocente(d, cSemestral);
         d.adicionaHorasAulaSemanais(cSemanal);
         d.adicionaHorasAulaSemestrais(cSemestral);
     }

@@ -11,8 +11,9 @@ int main(int argc, char* argv[]) {
     parser.parse(argc, argv);
     prog3::Sistema s = prog3::Sistema(parser.getArgs());
     //s.geraPADESalva();
+    s.geraRHAESalva();
     //s.geraAlocacaoESalva();
-    s.geraPPGESalva();
+    //s.geraPPGESalva();
     //s.WIP_Debug();
     std::cout << "Sucesso!" << std::endl;
     //prog3::Docente* d = new prog3::Docente();

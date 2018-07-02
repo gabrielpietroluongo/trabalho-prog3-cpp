@@ -8,6 +8,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ namespace prog3 {
     class Discente;
     class Disciplina;
     class OrientaGrad;
+    class Docente;
 
     class Curso {
     private:
@@ -26,13 +28,17 @@ namespace prog3 {
         vector<Discente*> discentes;
         vector<Disciplina*> disciplinas;
         vector<OrientaGrad*> orientacoesGrad;
+        map<Docente*, int> horasDocente;
     public:
         Curso(string = "", int = 0, bool = false);
         ~Curso();
         int getCodigo();
+        string getNome() {return this->nome; }
         void adicionaDiscente(Discente &d);
         void adicionaDisciplina(Disciplina& d);
         void adicionaOrientaGrad(OrientaGrad& o);
+        void adicionaHorasADocente(Docente& doc, int val);
+        map<Docente*, int>* getMap() { return &(this->horasDocente); }
     };
 
 }
