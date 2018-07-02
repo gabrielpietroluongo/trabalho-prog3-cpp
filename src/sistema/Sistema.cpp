@@ -22,8 +22,8 @@ namespace prog3 {
     	stream = new icstream(args["-p"]);
     	for(auto elem : stream->getData()) {
     		bool qualificada = false;
-    		if(stream->getData().size() == 3) {
-    			if(elem[3] == "X") {
+    		if(elem.size() == 3) {
+    			if(elem[2] == "X") {
     				qualificada = true;
     			}
     		}
@@ -149,7 +149,7 @@ namespace prog3 {
     struct outputData {
         vector<string> data;
     };
-    
+
     bool compareData(const outputData &a, const outputData &b)
     {
         if(a.data[0] == b.data[0]) {
