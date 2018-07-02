@@ -7,6 +7,7 @@
 
 int main(int argc, char* argv[]) {
     setlocale(LC_ALL, "Portuguese");
+    locale::global(locale("pt_BR.UTF8"));
     ArgParse parser = ArgParse();
     parser.parse(argc, argv);
     prog3::Sistema s = prog3::Sistema(parser.getArgs());
