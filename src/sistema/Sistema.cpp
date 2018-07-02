@@ -145,4 +145,19 @@ namespace prog3 {
 			out.escreve(d.getCSVData());
 		}
     }
+    void Sistema::geraAlocacaoESalva() {
+        ocstream out = ocstream("3-alocacao.csv");
+        out.escreve(vector<string> {"Docente", "Codigo", "Nome", "Carga Horaria Semestral"});
+        vector<Disciplina> disciplinas;
+        for(auto elem : this->atividades) {
+            Disciplina* cDisc = dynamic_cast<Disciplina*>(elem);
+            if(cDisc) {
+                disciplinas.push_back(*cDisc);
+            }
+        }
+        sort(disciplinas.begin(), disciplinas.end());
+        for(auto d : disciplinas) {
+            out.escreve(d.getCSVData());
+        }
+    }
 }

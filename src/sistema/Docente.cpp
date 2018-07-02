@@ -30,6 +30,10 @@ namespace prog3 {
         return ret;
     }
 
+    string Docente::getNome() {
+        return this->nome;
+    }
+
     void Docente::adicionaProducao(Producao& p) {
         this->producoes.push_back(&p);
     }
@@ -52,8 +56,8 @@ namespace prog3 {
 
 
     vector<string> Docente::getCSVData() {
-        int prodQual = 0;
-        int prodUnqual = 0;
+        unsigned long prodQual = 0;
+        unsigned long prodUnqual = 0;
         for(Producao* p : this->producoes) {
             if(p->isQualificada()) {
                 prodQual++;

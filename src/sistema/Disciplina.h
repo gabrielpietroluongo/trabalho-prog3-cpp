@@ -10,6 +10,7 @@
 
 #include "Atividade.h"
 #include "Curso.h"
+#include "Docente.h"
 
 using namespace std;
 
@@ -26,6 +27,8 @@ namespace prog3 {
     public:
         Disciplina(string codigo, string nome, Docente& d, int cargaSemanal, int cargaSemestral, Curso& curso);
         ~Disciplina();
+        vector<string> getCSVData();
+        friend bool operator<(Disciplina const& a, Disciplina const& b);
     };
 }
 

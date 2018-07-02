@@ -35,6 +35,8 @@ namespace prog3 {
 
         string to_string();
 
+        string getNome();
+
         void adicionaProducao(Producao&);
 
         void adicionaAtividade(Atividade&);

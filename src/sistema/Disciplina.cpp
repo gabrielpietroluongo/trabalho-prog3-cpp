@@ -20,6 +20,24 @@ namespace prog3 {
     }
 
     Disciplina::~Disciplina() {
+    }
 
+    vector<string> Disciplina::getCSVData() {
+        vector<string> vec = {
+                this->docente->getNome(),
+                this->codigo,
+                this->nome,
+                std::to_string(this->cargaSemestral)
+        };
+        return vec;
+    }
+
+    bool operator<(Disciplina const& a, Disciplina const& b) {
+        // Se o nome for igual, compara os codigos
+        if(a.docente->getNome() == b.docente->getNome()) {
+             return cpp_util::stringCompare(a.codigo, b.codigo);
+        } else {
+            return cpp_util::stringCompare(a.docente->getNome(), b.docente->getNome());
+        }
     }
 }

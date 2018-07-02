@@ -21,7 +21,7 @@ namespace prog3 {
         Docente* docente;
     public:
         Atividade(Docente&, int = 0);
-        ~Atividade();
+        virtual ~Atividade();
     };
 }
 

@@ -20,7 +20,7 @@ namespace prog3 {
         Discente* discente;
     public:
         Orientacao(Docente& docente, int cargaSemanal, Discente& discente);
-        ~Orientacao();
+        virtual ~Orientacao();
 
         // Operator overloads
         friend ostream &operator<<(ostream &os, const Orientacao &o);
