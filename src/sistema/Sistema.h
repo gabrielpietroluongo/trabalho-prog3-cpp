@@ -11,6 +11,7 @@
 #include <vector>
 #include <algorithm>
 #include "../utils/cpp_utils/StringUtils.h"
+#include "../exceptions/InvalidCodeException.h"
 
 //Includes do sistema
 #include "Docente.h"

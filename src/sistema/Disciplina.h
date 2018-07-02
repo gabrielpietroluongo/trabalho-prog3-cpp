@@ -28,6 +28,7 @@ namespace prog3 {
         Disciplina(string codigo, string nome, Docente& d, int cargaSemanal, int cargaSemestral, Curso& curso);
         ~Disciplina();
         vector<string> getCSVData();
+        string getCodigo() { return this->codigo; }
         friend bool operator<(Disciplina const& a, Disciplina const& b);
     };
 }

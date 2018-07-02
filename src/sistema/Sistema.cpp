@@ -5,6 +5,8 @@
 #include <algorithm>
 #include "Sistema.h"
 #include "../utils/ocstream.h"
+#include "../exceptions/ClassInconsistencyException.h"
+#include "../exceptions/RepeatedCodeException.h"
 
 namespace prog3 {
 
@@ -36,7 +38,7 @@ namespace prog3 {
     	for(auto elem : stream->getData()) {
     		bool grad = false;
     		if(elem[2] == elem[3]) {
-    		    throw "popopoy";
+    		    throw ClassInconsistencyException(elem[0], elem[1]);
     		}
     		if(elem[3] == "X") {
     			grad = true;
@@ -95,38 +97,69 @@ namespace prog3 {
 
     void Sistema::adicionaDocente(int codigo, string nome, string departamento) {
         Docente *d = new Docente(codigo, nome, departamento);
+        if(this->docentes.count(codigo) != 0)
+            throw RepeatedCodeException(RepeatedCodeException::Tipo::DOCENTE, to_string(codigo));
         this->docentes.insert(pair<int, Docente*>(codigo, d));
     }
 
     void Sistema::adicionaDiscente(long matricula, string nome, int codigoCurso) {
         Discente* d = new Discente(nome, matricula, this->cursos[codigoCurso]);
+        if(this->discentes.count(matricula) != 0)
+            throw RepeatedCodeException(RepeatedCodeException::Tipo::DISCENTE, to_string(matricula));
         this->discentes.insert(pair<long, Discente*>(matricula, d));
     }
 
     void Sistema::adicionaProducao(int codigo, string titulo, bool qualificada) {
+        if(this->docentes.count(codigo) == 0) {
+            throw InvalidCodeException(InvalidCodeException::Tipo::DOCENTE_PUBLICACAO, to_string(codigo),
+                                       titulo);
+        }
         Producao* p = new Producao(*this->docentes[codigo], titulo, qualificada);
         this->producoes.push_back(p);
     }
 
     void Sistema::adicionaCurso(int codigo, string nome, bool grad) {
         Curso* c = new Curso(nome, codigo, grad);
-        map<int, Curso*>::iterator it = this->cursos.find(codigo);
-        if(it != this->cursos.end())
-        {
-            cout << "ERRO CURSO REPETIDO" << endl;
-            exit(1);
-        }
+        if(this->cursos.count(codigo) != 0)
+            throw RepeatedCodeException(RepeatedCodeException::Tipo::CURSO, to_string(codigo));
         this->cursos.insert(pair<int, Curso*>(codigo, c));
     }
 
     void Sistema::adicionaDisciplina(string codigoMateria, string nome, int codigoDocente, int cargaSemanal,
                             int cargaSemestral, int codigoCurso) {
+        if(this->docentes.count(codigoDocente) == 0) {
+            throw InvalidCodeException(InvalidCodeException::Tipo::DOCENTE_DISCIPLINA, to_string(codigoDocente), nome);
+        }
+
+        if(this->cursos.count(codigoCurso) == 0) {
+            throw InvalidCodeException(InvalidCodeException::Tipo::CURSO_DISCIPLINA, to_string(codigoCurso),
+                                       nome);
+        }
+
         Disciplina* d = new Disciplina(codigoMateria, nome, *this->docentes[codigoDocente], cargaSemanal,
                                        cargaSemestral, *this->cursos[codigoCurso]);
+        for(auto elem : this->atividades) {
+            Disciplina* cDisc = dynamic_cast<Disciplina*>(elem);
+            if(cDisc) {
+                if(cDisc->getCodigo() == codigoMateria) {
+                    throw RepeatedCodeException(RepeatedCodeException::Tipo::DISCIPLINA, codigoMateria);
+                }
+            }
+        }
         this->atividades.push_back(d);
     }
 
     void Sistema::adicionaOrientacaoGrad(int codigoDocente, long matriculaDiscente, int codigoCurso, int cargaSemanal) {
+        if(this->docentes.count(codigoDocente) == 0) {
+            throw InvalidCodeException(InvalidCodeException::Tipo::DOCENTE_ORIENTACAO, to_string(codigoDocente),
+            this->discentes[matriculaDiscente]->getNome());
+        }
+
+        if(this->cursos.count(codigoCurso) == 0) {
+            throw InvalidCodeException(InvalidCodeException::Tipo::CURSO_ORIENTACAO, to_string(codigoCurso),
+                                       this->discentes[matriculaDiscente]->getNome());
+        }
+
         OrientaGrad* o = new OrientaGrad(*this->docentes[codigoDocente], *this->discentes[matriculaDiscente],
                                          *this->cursos[codigoCurso], cargaSemanal);
         this->atividades.push_back(o);
@@ -134,6 +167,11 @@ namespace prog3 {
 
     void Sistema::adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, string dataIngresso,
                                string programa, int cargaSemanal) {
+        if(this->docentes.count(codigoDocente) == 0) {
+            throw InvalidCodeException(InvalidCodeException::Tipo::DOCENTE_ORIENTACAO, to_string(codigoDocente),
+                                       this->discentes[matriculaDiscente]->getNome());
+        }
+
         OrientaPos* o = new OrientaPos(*this->docentes[codigoDocente], cargaSemanal, *this->discentes[matriculaDiscente],
                                        dataIngresso, programa);
         this->atividades.push_back(o);
