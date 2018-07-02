@@ -14,9 +14,11 @@ ocstream::ocstream(string outputFile) {
     }
 
 void ocstream::escreve(vector<string> data){
+    int i = 0;
     for(auto elem : data){
+        i++;
         *(this->outputStream) << elem;
-        if(elem != data[data.size()-1])
+        if(i != data.size())
             *(this->outputStream) << ";";
 	}
     *(this->outputStream) << "\n";
