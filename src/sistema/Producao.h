@@ -24,7 +24,7 @@ namespace prog3 {
     public:
         Producao(Docente&, string = "", bool = false);
         ~Producao();
-
+        bool isQualificada();
     };
 }
 #endif //TRABALHO_PROG3_PRODUCAO_H

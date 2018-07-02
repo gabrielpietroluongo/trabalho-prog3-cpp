@@ -22,6 +22,9 @@ namespace prog3 {
         string departamento;
         vector<Producao*> producoes;
         vector<Atividade*> atividades;
+        int horasAulaSemanais;
+        int horasAulaSemestrais;
+        int horasOrientacaoSemanais;
 
     public:
         Docente(int = 0, string = "", string = "");
@@ -35,6 +38,14 @@ namespace prog3 {
         void adicionaProducao(Producao&);
 
         void adicionaAtividade(Atividade&);
+
+        void adicionaHorasAulaSemanais(int val);
+
+        void adicionaHorasAulaSemestrais(int val);
+
+        void adicionaHorasOrientacao(int val);
+
+        vector<string> getCSVData();
 
         // Operator overloads
         friend ostream &operator<<(ostream &os, const Docente &doc);

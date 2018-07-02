@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include "Sistema.h"
+#include "../utils/ocstream.h"
 
 namespace prog3 {
 
@@ -130,6 +131,10 @@ namespace prog3 {
     }
 
 	void Sistema::geraPADESalva() {
+        ocstream out = ocstream("1-pad.csv");
+        out.escreve(vector<string> {"Docente", "Departamento", "Horas Semanais Aula", "Horas Semestrais Aula",
+                                    "Horas Semanais Orientaçao", "Produçoes Qualificadas",
+                                    "Produçoes Nao Qualificadas"});
     	vector<Docente> docentes;
 		for(auto it = this->docentes.cbegin(); it != this->docentes.cend(); ++it)
 		{
@@ -137,7 +142,7 @@ namespace prog3 {
 		}
 		sort(docentes.begin(), docentes.end());
 		for(auto d : docentes) {
-			cout << d;
+			out.escreve(d.getCSVData());
 		}
     }
 }

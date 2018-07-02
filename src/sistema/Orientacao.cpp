@@ -8,6 +8,7 @@ namespace prog3 {
     Orientacao::Orientacao(Docente& docente, int cargaSemanal, Discente& discente) : Atividade(docente, cargaSemanal) {
         this->discente = &discente;
         this->discente->adicionaOrientacao(*this);
+        this->docente->adicionaHorasOrientacao(cargaSemanal);
     }
     Orientacao::~Orientacao() {
 

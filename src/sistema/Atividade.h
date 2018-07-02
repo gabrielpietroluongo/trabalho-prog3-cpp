@@ -17,6 +17,7 @@ namespace prog3 {
     class Atividade {
     private:
         int cargaSemanal;
+    protected:
         Docente* docente;
     public:
         Atividade(Docente&, int = 0);

@@ -16,7 +16,7 @@ ocstream::ocstream(string outputFile) {
 void ocstream::escreve(vector<string> data){
     for(auto elem : data){
         *(this->outputStream) << elem;
-        if(elem != data[data.size()])
+        if(elem != data[data.size()-1])
             *(this->outputStream) << ";";
 	}
     *(this->outputStream) << "\n";

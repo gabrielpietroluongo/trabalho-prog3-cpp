@@ -13,6 +13,10 @@ namespace prog3 {
         d.adicionaProducao(*this);
     }
 
+    bool Producao::isQualificada() {
+        return this->qualificada;
+    }
+
     Producao::~Producao() {
 
     }
