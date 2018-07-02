@@ -13,8 +13,6 @@ namespace prog3 {
      *****************************************************************************************
      *  @brief      Classe de domínio Atividade
      *
-     *  @usage       Utilizada na classe de domínio sistema
-     *
      *  @param      Docente& docente relacionado à atividade
      *  @param      int Carga Horária Semanal relacionada à atividade
      *
@@ -23,7 +21,7 @@ namespace prog3 {
     private:
         int cargaSemanal;
     protected:
-        Docente* docente;
+        Docente* docente;                   ///< Docente responsavel pela atividade
     public:
         Atividade(Docente&, int = 0);
         virtual ~Atividade();

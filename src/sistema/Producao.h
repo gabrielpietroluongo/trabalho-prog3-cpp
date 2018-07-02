@@ -17,7 +17,7 @@ namespace prog3 {
     class Docente;
 /**
    *****************************************************************************************
-   *  @brief      Classe de dominio produçao
+   *  @brief      Classe de dominio Producao
    *
    *  @params Docente& Docente responsavel pela produçao
    *  @params string Titulo da publicaçao

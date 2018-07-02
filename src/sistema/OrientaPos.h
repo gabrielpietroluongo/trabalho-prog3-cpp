@@ -16,7 +16,7 @@
 namespace prog3 {
 /**
    *****************************************************************************************
-   *  @brief      Classe de dominio OrientaPos (Orientaçao de Pos Graduaçao
+   *  @brief      Classe de dominio OrientaPos (Orientaçao de Pos Graduaçao)
    *
    *  @params Docente& Docente responsavel pela orientaçao
    *  @params int Carga Semanal da orientaçao

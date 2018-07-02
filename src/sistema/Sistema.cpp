@@ -9,7 +9,14 @@
 #include "../exceptions/RepeatedCodeException.h"
 
 namespace prog3 {
-
+/**
+   *****************************************************************************************
+   *  @brief      Construtor da classe
+   *
+   *  @param     map<string, string>       Mapa de argumentos para carregamento de arquivos
+   *
+   *
+   ****************************************************************************************/
     Sistema::Sistema(map<string, string> args) {
 
     	// Docente
@@ -79,29 +86,38 @@ namespace prog3 {
     Sistema::~Sistema() {
         //TODO
     }
-
-    void Sistema::WIP_carrega_dados(map<string*, string*> args) {
-
-    }
-
-    void Sistema::WIP_Debug() {
-        for(auto it = this->docentes.cbegin(); it != this->docentes.cend(); ++it)
-        {
-            std::cout << it->second << "\n";
-        }
-        for(auto it = this->discentes.cbegin(); it != this->discentes.cend(); ++it)
-        {
-            std::cout << it->second << "\n";
-        }
-    }
-
+    /**
+   *****************************************************************************************
+   *  @brief      Adiciona docente ao mapa de docentes do sistema.
+   *
+   *  Cria um docente e o insere no mapa de docentes.
+   *
+   *
+   *  @param int       Codigo do docente a ser adicionado
+   *  @param string    Nome do docente a ser adicionado
+   *  @param string    Departamento do docente a ser adicionado
+   *
+   *
+   ****************************************************************************************/
     void Sistema::adicionaDocente(int codigo, string nome, string departamento) {
         Docente *d = new Docente(codigo, nome, departamento);
         if(this->docentes.count(codigo) != 0)
             throw RepeatedCodeException(RepeatedCodeException::Tipo::DOCENTE, to_string(codigo));
         this->docentes.insert(pair<int, Docente*>(codigo, d));
     }
-
+/**
+   *****************************************************************************************
+   *  @brief      Adiciona discente ao mapa de discentes do sistema.
+   *
+   *  Cria um discente e o insere no mapa de discente.
+   *
+   *
+   *  @param long      Matricula do discente a ser adicionado
+   *  @param string    Nome do docente a ser adicionado
+   *  @param int       Codigo do curso do discente a ser adicionado
+   *
+   *
+   ****************************************************************************************/
     void Sistema::adicionaDiscente(long matricula, string nome, int codigoCurso) {
         Discente* d = new Discente(nome, matricula, this->cursos[codigoCurso]);
         if(this->discentes.count(matricula) != 0)
@@ -109,6 +125,19 @@ namespace prog3 {
         this->discentes.insert(pair<long, Discente*>(matricula, d));
     }
 
+    /**
+   *****************************************************************************************
+   *  @brief      Adiciona producao a lista de producoes do sistema.
+   *
+   *  Cria uma producao e a insere na lista de docentes.
+   *
+   *
+   *  @param int       Codigo do docente responsavel
+   *  @param string    Titulo da produçao
+   *  @param bool      É produçao qualificada?
+   *
+   *
+   ****************************************************************************************/
     void Sistema::adicionaProducao(int codigo, string titulo, bool qualificada) {
         if(this->docentes.count(codigo) == 0) {
             throw InvalidCodeException(InvalidCodeException::Tipo::DOCENTE_PUBLICACAO, to_string(codigo),
@@ -117,14 +146,41 @@ namespace prog3 {
         Producao* p = new Producao(*this->docentes[codigo], titulo, qualificada);
         this->producoes.push_back(p);
     }
-
+    /**
+   *****************************************************************************************
+   *  @brief      Adiciona producao a lista de producoes do sistema.
+   *
+   *  Cria uma producao e a insere na lista de docentes.
+   *
+   *
+   *  @param int       Codigo do docente responsavel
+   *  @param string    Titulo da produçao
+   *  @param bool      É produçao qualificada?
+   *
+   *
+   ****************************************************************************************/
     void Sistema::adicionaCurso(int codigo, string nome, bool grad) {
         Curso* c = new Curso(nome, codigo, grad);
         if(this->cursos.count(codigo) != 0)
             throw RepeatedCodeException(RepeatedCodeException::Tipo::CURSO, to_string(codigo));
         this->cursos.insert(pair<int, Curso*>(codigo, c));
     }
-
+    /**
+   *****************************************************************************************
+   *  @brief      Adiciona disciplina a lista de atividades do sistema.
+   *
+   *  Cria uma disciplina e a insere na lista de atividades.
+   *
+   *
+   *  @param string    Codigo da materia
+   *  @param string    Nome da materia
+   *  @param int       Codigo do docente responsavel pela materia
+   *  @param int       Carga horaria semanal da materia
+   *  @param int       Carga horaria semestral da materia
+   *  @param int       Codigo do curso relacionado a materia
+   *
+   *
+   ****************************************************************************************/
     void Sistema::adicionaDisciplina(string codigoMateria, string nome, int codigoDocente, int cargaSemanal,
                             int cargaSemestral, int codigoCurso) {
         if(this->docentes.count(codigoDocente) == 0) {
@@ -148,7 +204,20 @@ namespace prog3 {
         }
         this->atividades.push_back(d);
     }
-
+    /**
+   *****************************************************************************************
+   *  @brief      Adiciona Orientaçao de graduaçao a lista de atividades do sistema.
+   *
+   *  Cria uma Orientaçao de Graduaçao e a insere na lista de atividades.
+   *
+   *
+   *  @param int       Codigo do docente responsavel pela materia
+   *  @param long      Matricula do discente
+   *  @param int       Codigo do curso do discente
+   *  @param int       Carga horaria semanal da orientaçao
+   *
+   *
+   ****************************************************************************************/
     void Sistema::adicionaOrientacaoGrad(int codigoDocente, long matriculaDiscente, int codigoCurso, int cargaSemanal) {
         if(this->docentes.count(codigoDocente) == 0) {
             throw InvalidCodeException(InvalidCodeException::Tipo::DOCENTE_ORIENTACAO, to_string(codigoDocente),
@@ -164,7 +233,21 @@ namespace prog3 {
                                          *this->cursos[codigoCurso], cargaSemanal);
         this->atividades.push_back(o);
     }
-
+/**
+   *****************************************************************************************
+   *  @brief      Adiciona Orientaçao de pos graduaçao a lista de atividades do sistema.
+   *
+   *  Cria uma Orientaçao de Pos Graduaçao e a insere na lista de atividades.
+   *
+   *
+   *  @param int       Codigo do docente responsavel pela materia
+   *  @param long      Matricula do discente
+   *  @param string    Data de ingresso do discente no programa (no formato DD/MM/AAAA)
+   *  @param string    Programa de orientaçao
+   *  @param int       Carga horaria semanal da orientaçao
+   *
+   *
+   ****************************************************************************************/
     void Sistema::adicionaOrientacaoPos(int codigoDocente, long matriculaDiscente, string dataIngresso,
                                string programa, int cargaSemanal) {
         if(this->docentes.count(codigoDocente) == 0) {
@@ -177,6 +260,14 @@ namespace prog3 {
         this->atividades.push_back(o);
     }
 
+    /**
+   *****************************************************************************************
+   *  @brief      Gera o arquivo de saida 1, o PAD
+   *
+   *  Analisa os dados do sistema e gera o arquivo de saida.
+   *
+   *
+   ****************************************************************************************/
 	void Sistema::geraPADESalva() {
         ocstream out = ocstream("1-pad.csv");
         out.escreve(vector<string> {"Docente", "Departamento", "Horas Semanais Aula", "Horas Semestrais Aula",
@@ -192,11 +283,19 @@ namespace prog3 {
 			out.escreve(d.getCSVData());
 		}
     }
-
+    /**
+    *****************************************************************************************
+    *  @brief      Struct auxiliar para geraçao do Relatorio de Horas-Aula
+    *
+    *  Struct que auxilia na organizaçao e ordenaçao do segundo arquivo de saida
+    *
+    *
+    ****************************************************************************************/
     struct outputData {
         vector<string> data;
     };
 
+    // Funçao auxiliar para ordenaçao de vetores de outputData s
     bool compareData(const outputData &a, const outputData &b)
     {
         if(a.data[0] == b.data[0]) {
@@ -210,7 +309,14 @@ namespace prog3 {
             return cpp_util::stringCompare(a.data[0], b.data[0]);
         }
     }
-
+    /**
+   *****************************************************************************************
+   *  @brief      Gera o arquivo de saida 2, o RHA
+   *
+   *  Analisa os dados do sistema e gera o arquivo de saida.
+   *
+   *
+   ****************************************************************************************/
     void Sistema::geraRHAESalva() {
         ocstream out = ocstream("2-rha.csv");
         out.escreve(vector<string> {"Departamento", "Docente", "Cód. Curso", "Curso", "Horas Semestrais Aula"});
@@ -240,7 +346,14 @@ namespace prog3 {
         }
 
     }
-
+    /**
+    *****************************************************************************************
+    *  @brief      Gera o arquivo de saida 3, o relatorio de Alocaçao
+    *
+    *  Analisa os dados do sistema e gera o arquivo de saida.
+    *
+    *
+    ****************************************************************************************/
     void Sistema::geraAlocacaoESalva() {
         ocstream out = ocstream("3-alocacao.csv");
         out.escreve(vector<string> {"Docente", "Código", "Nome", "Carga Horária Semestral"});
@@ -256,6 +369,14 @@ namespace prog3 {
             out.escreve(d.getCSVData());
         }
     }
+    /**
+    *****************************************************************************************
+    *  @brief      Gera o arquivo de saida 1, o relatorio de PPG
+    *
+    *  Analisa os dados do sistema e gera o arquivo de saida.
+    *
+    *
+    ****************************************************************************************/
     void Sistema::geraPPGESalva() {
         ocstream out = ocstream("4-ppg.csv");
         out.escreve(vector<string> {"Nome do Programa", "Data de Ingresso", "Matrícula", "Nome"});

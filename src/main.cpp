@@ -1,10 +1,26 @@
+/**
+@mainpage
+
+Trabalho de Programaçao 3
+
+@author Gabriel Pietroluongo e Otavio Cozer
+@date 02/07/2018
+@file main.cpp
+*/
 #include <iostream>
 #include <locale>
 
 #include "sistema/Sistema.h"
 #include "utils/ArgParse.h"
 
-
+/**
+   *****************************************************************************************
+   *  @brief      Classe principal do programa
+   *
+   *  @params int numero de argumentos
+   *  @params char* lista de argumentos
+   *
+   ****************************************************************************************/
 int main(int argc, char* argv[]) {
     try {
         setlocale(LC_ALL, "Portuguese");

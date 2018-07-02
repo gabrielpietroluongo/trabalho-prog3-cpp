@@ -30,7 +30,14 @@
 using namespace std;
 
 namespace prog3 {
-
+/**
+   *****************************************************************************************
+   *  @brief      Classe principal de dominio Sistema
+   *
+   *  Classe que une as outras classes de dominio a fim de produzir os arquivos de saida do trabalho.
+   *
+   *
+   ****************************************************************************************/
     class Sistema {
     private:
         map<int, Docente*> docentes;
@@ -41,8 +48,6 @@ namespace prog3 {
     public:
         Sistema(map<string, string> args);
         ~Sistema();
-        void WIP_carrega_dados(map<string*, string*> args);
-        void WIP_Debug();
         void adicionaDocente(int codigo, string nome, string departamento);
         void adicionaDiscente(long matricula, string nome, int codigoCurso);
         void adicionaProducao(int codigo, string titulo, bool qualificada);
