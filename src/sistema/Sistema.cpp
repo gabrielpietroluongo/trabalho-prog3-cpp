@@ -133,8 +133,8 @@ namespace prog3 {
 	void Sistema::geraPADESalva() {
         ocstream out = ocstream("1-pad.csv");
         out.escreve(vector<string> {"Docente", "Departamento", "Horas Semanais Aula", "Horas Semestrais Aula",
-                                    "Horas Semanais Orientaçao", "Produçoes Qualificadas",
-                                    "Produçoes Nao Qualificadas"});
+                                    "Horas Semanais Orientação", "Produções Qualificadas",
+                                    "Produções Não Qualificadas"});
     	vector<Docente> docentes;
 		for(auto it = this->docentes.cbegin(); it != this->docentes.cend(); ++it)
 		{
@@ -166,7 +166,7 @@ namespace prog3 {
 
     void Sistema::geraRHAESalva() {
         ocstream out = ocstream("2-rha.csv");
-        out.escreve(vector<string> {"Departamento", "Docente", "Cod. Curso", "Curso", "Horas Semestrais Aula"});
+        out.escreve(vector<string> {"Departamento", "Docente", "Cód. Curso", "Curso", "Horas Semestrais Aula"});
         vector<outputData> data;
         for(auto it = this->cursos.cbegin(); it != this->cursos.cend(); ++it)
         {
@@ -196,7 +196,7 @@ namespace prog3 {
 
     void Sistema::geraAlocacaoESalva() {
         ocstream out = ocstream("3-alocacao.csv");
-        out.escreve(vector<string> {"Docente", "Codigo", "Nome", "Carga Horaria Semestral"});
+        out.escreve(vector<string> {"Docente", "Código", "Nome", "Carga Horária Semestral"});
         vector<Disciplina> disciplinas;
         for(auto elem : this->atividades) {
             Disciplina* cDisc = dynamic_cast<Disciplina*>(elem);
@@ -211,7 +211,7 @@ namespace prog3 {
     }
     void Sistema::geraPPGESalva() {
         ocstream out = ocstream("4-ppg.csv");
-        out.escreve(vector<string> {"Nome do Programa", "Data de Ingresso", "Matricula", "Nome"});
+        out.escreve(vector<string> {"Nome do Programa", "Data de Ingresso", "Matrícula", "Nome"});
         vector<OrientaPos> orientacoes;
         for(auto elem : this->atividades) {
             OrientaPos* oPos = dynamic_cast<OrientaPos*>(elem);
