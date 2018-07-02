@@ -35,6 +35,9 @@ namespace prog3 {
     	stream = new icstream(args["-c"]);
     	for(auto elem : stream->getData()) {
     		bool grad = false;
+    		if(elem[2] == elem[3]) {
+    		    throw "popopoy";
+    		}
     		if(elem[3] == "X") {
     			grad = true;
 			}
@@ -107,6 +110,12 @@ namespace prog3 {
 
     void Sistema::adicionaCurso(int codigo, string nome, bool grad) {
         Curso* c = new Curso(nome, codigo, grad);
+        map<int, Curso*>::iterator it = this->cursos.find(codigo);
+        if(it != this->cursos.end())
+        {
+            cout << "ERRO CURSO REPETIDO" << endl;
+            exit(1);
+        }
         this->cursos.insert(pair<int, Curso*>(codigo, c));
     }
 
