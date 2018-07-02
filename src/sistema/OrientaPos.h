@@ -9,6 +9,7 @@
 #include <iostream>
 #include <ctime>
 #include "../utils/cpp_utils/DateUtils.h"
+#include "../utils/cpp_utils/StringUtils.h"
 
 #include "Orientacao.h"
 
@@ -21,6 +22,8 @@ namespace prog3 {
     public:
         OrientaPos(Docente& docente, int cargaSemanal, Discente& discente, string dataIngresso, string programa);
         ~OrientaPos();
+        vector<string> getCSVData();
+        friend bool operator<(OrientaPos const& a, OrientaPos const& b);
     };
 
 }

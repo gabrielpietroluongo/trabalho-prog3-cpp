@@ -30,6 +30,9 @@ namespace prog3 {
         ~Discente();
         void adicionaOrientacao(Orientacao& o);
 
+        long getMatricula() { return this->matricula; }
+        string getNome() { return this->nome; }
+
         // Operator overloads
         friend ostream &operator<<(ostream &os, const Discente &dis);
 

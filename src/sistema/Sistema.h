@@ -51,6 +51,7 @@ namespace prog3 {
                                    string programa, int cargaSemanal);
         void geraPADESalva();
         void geraAlocacaoESalva();
+        void geraPPGESalva();
     };
 
 }

@@ -16,7 +16,7 @@ using namespace std;
 namespace prog3 {
 
     class Orientacao : public Atividade {
-    private:
+    protected:
         Discente* discente;
     public:
         Orientacao(Docente& docente, int cargaSemanal, Discente& discente);

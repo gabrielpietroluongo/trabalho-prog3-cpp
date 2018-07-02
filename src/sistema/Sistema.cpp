@@ -160,4 +160,21 @@ namespace prog3 {
             out.escreve(d.getCSVData());
         }
     }
+    void Sistema::geraPPGESalva() {
+        ocstream out = ocstream("4-ppg.csv");
+        out.escreve(vector<string> {"Nome do Programa", "Data de Ingresso", "Matricula", "Nome"});
+        vector<OrientaPos> orientacoes;
+        for(auto elem : this->atividades) {
+            OrientaPos* oPos = dynamic_cast<OrientaPos*>(elem);
+            if(oPos) {
+                orientacoes.push_back(*oPos);
+            }
+        }
+        sort(orientacoes.begin(), orientacoes.end());
+        for(auto o : orientacoes) {
+            out.escreve(o.getCSVData());
+        }
+    }
+
+
 }
