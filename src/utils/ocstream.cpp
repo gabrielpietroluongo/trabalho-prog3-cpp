@@ -7,12 +7,25 @@
 //
 
 #include "ocstream.h"
-
+/**
+     *****************************************************************************************
+     *  @brief      Construtor da classe
+     *
+     *  @param      string Arquivo de saida
+     *
+     ****************************************************************************************/
 ocstream::ocstream(string outputFile) {
     this->outputStream = new ofstream(outputFile);
 
     }
 
+/**
+ *****************************************************************************************
+ *  @brief      Escreve dados de csv no arquivo de saida
+ *
+ *  @param      vector<string> dados a serem escritos
+ *
+ ****************************************************************************************/
 void ocstream::escreve(vector<string> data){
     int i = 0;
     for(auto elem : data){

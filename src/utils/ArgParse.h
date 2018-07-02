@@ -10,7 +10,16 @@
 #include <map>
 
 using namespace std;
-
+/**
+ *****************************************************************************************
+ *  @brief      Classe de utilidades ArgParse
+ *
+ *  @usage      Utilizada para parsing de argumentos do programa
+ *
+ *  @param      int argc numero de argumentos
+ *  @param      char** argv vetor de argumentos
+ *
+ ****************************************************************************************/
 class ArgParse {
 private:
     map<string, string> args;

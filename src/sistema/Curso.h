@@ -19,6 +19,7 @@ namespace prog3 {
     class Disciplina;
     class OrientaGrad;
     class Docente;
+    
      /**
      *****************************************************************************************
      *  @brief      Classe de domínio Curso

@@ -17,7 +17,13 @@
 #include "cpp_utils/Tokenizer.h"
 
 using namespace std;
-
+/**
+     *****************************************************************************************
+     *  @brief      Classe auxiliar de leitura de csvs
+     *
+     *  @param      string Arquivo de entrada
+     *
+     ****************************************************************************************/
 class icstream {
 private:
     ifstream* inputStream;

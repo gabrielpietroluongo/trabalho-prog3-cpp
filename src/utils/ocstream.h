@@ -15,7 +15,13 @@
 #include <vector>
 
 using namespace std;
-
+/**
+     *****************************************************************************************
+     *  @brief      Classe de escrita de arquivos csv
+     *
+     *  @param      string Arquivo de saida
+     *
+     ****************************************************************************************/
 class ocstream {
 private:
     ofstream* outputStream;
