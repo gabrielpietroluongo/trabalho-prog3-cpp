@@ -8,6 +8,18 @@
 using namespace std;
 
 namespace prog3 {
+    /**
+     *****************************************************************************************
+     *  @brief      Construtor da classe
+     *
+     *  @param      string Curso da disciplina
+     *  @param      string Nome da disciplina
+     *  @param      Docente& Docente responsavel pela disciplina
+     *  @param      int Carga Semanal
+     *  @param      int Carga Semestral
+     *  @param      Curso& Curso relacionado
+     *
+     ****************************************************************************************/
     Disciplina::Disciplina(string c, string n, Docente& d, int cSemanal, int cSemestral,
                            Curso& cur) : Atividade(d, cSemanal) {
         this->curso = &cur;
@@ -23,6 +35,13 @@ namespace prog3 {
     Disciplina::~Disciplina() {
     }
 
+    /**
+    *****************************************************************************************
+    *  @brief      Retorna os dados formatados em CSV para escrita na saida
+    *
+    *  @returns    vector<string> lista de strings para escrita
+    *
+    ****************************************************************************************/
     vector<string> Disciplina::getCSVData() {
         vector<string> vec = {
                 this->docente->getNome(),

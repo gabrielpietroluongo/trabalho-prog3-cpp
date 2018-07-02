@@ -20,7 +20,7 @@ namespace prog3 {
     class Orientacao;
     /**
      *****************************************************************************************
-     *  @brief      Classe de domínio Atividade
+     *  @brief      Classe de domínio Discente
      *
      *  @usage      Utilizada na classe de domínio sistema
      *

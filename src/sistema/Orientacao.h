@@ -14,7 +14,15 @@
 using namespace std;
 
 namespace prog3 {
-
+    /**
+       *****************************************************************************************
+       *  @brief      Classe de dominio Orientaçao
+       *
+       *  @params Docente& Docente responsavel pela orientaçao
+       *  @params int Carga Semanal da orientaçao
+       *  @params Discente& Discente orientado
+       *
+       ****************************************************************************************/
     class Orientacao : public Atividade {
     protected:
         Discente* discente;

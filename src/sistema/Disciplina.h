@@ -17,7 +17,18 @@ using namespace std;
 namespace prog3 {
 
     class Curso;
-
+    /**
+    *****************************************************************************************
+    *  @brief      Classe de dominio Disciplina
+    *
+    *  @param      string Curso da disciplina
+    *  @param      string Nome da disciplina
+    *  @param      Docente& Docente responsavel pela disciplina
+    *  @param      int Carga Semanal
+    *  @param      int Carga Semestral
+    *  @param      Curso& Curso relacionado
+    *
+    ****************************************************************************************/
     class Disciplina : public Atividade {
     private:
         string codigo;

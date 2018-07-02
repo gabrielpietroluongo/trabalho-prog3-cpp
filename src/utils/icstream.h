@@ -18,12 +18,12 @@
 
 using namespace std;
 /**
-     *****************************************************************************************
-     *  @brief      Classe auxiliar de leitura de csvs
-     *
-     *  @param      string Arquivo de entrada
-     *
-     ****************************************************************************************/
+ *****************************************************************************************
+ *  @brief      Classe auxiliar de leitura de arquivos csv
+ *
+ *  @param      string Arquivo de entrada
+ *
+ ****************************************************************************************/
 class icstream {
 private:
     ifstream* inputStream;

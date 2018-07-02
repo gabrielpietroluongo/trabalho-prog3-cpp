@@ -8,7 +8,16 @@
 #include "Orientacao.h"
 
 namespace prog3 {
-
+    /**
+       *****************************************************************************************
+       *  @brief      Classe de dominio Orientaçao de Graduaçao
+       *
+       *  @params Docente& Docente responsavel pela orientaçao
+       *  @params Discente& Discente orientado
+       *  @params Curso& Curso do discente
+       *  @params int Carga Semanal da orientaçao
+       *
+       ****************************************************************************************/
     class OrientaGrad : public Orientacao {
     private:
         Curso* curso;

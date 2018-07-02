@@ -14,7 +14,15 @@ namespace prog3 {
     //Forward declaration
     class Producao;
     class Atividade;
-
+    /**
+    *****************************************************************************************
+    *  @brief      Classe de dominio Docente
+    *
+    *  @param      int Codigo do docente
+    *  @param      string Nome do docente
+    *  @param      string Departamento do docente
+    *
+    ****************************************************************************************/
     class Docente {
     private:
         int codigo;

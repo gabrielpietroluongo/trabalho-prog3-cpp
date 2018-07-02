@@ -2,7 +2,15 @@
 #include "Producao.h"
 
 namespace prog3 {
-
+    /**
+    *****************************************************************************************
+    *  @brief      Construtor da classe
+    *
+    *  @param      int Codigo do docente
+    *  @param      string Nome do docente
+    *  @param      string Departamento do docente
+    *
+    ****************************************************************************************/
     Docente::Docente(int c, string n, string d) {
         this->codigo = c;
         this->nome = n;
@@ -33,28 +41,67 @@ namespace prog3 {
     string Docente::getNome() {
         return this->nome;
     }
-
+    /**
+    *****************************************************************************************
+    *  @brief      Adiciona produçao ao docente
+    *
+    *  @param      Producao& produçao a adicionar
+    *
+    ****************************************************************************************/
     void Docente::adicionaProducao(Producao& p) {
         this->producoes.push_back(&p);
     }
 
+    /**
+    *****************************************************************************************
+    *  @brief      Adiciona atividade ao docente
+    *
+    *  @param      Atividade& atividade a adicionar
+    *
+    ****************************************************************************************/
     void Docente::adicionaAtividade(Atividade& a) {
         this->atividades.push_back(&a);
     }
-
+    /**
+    *****************************************************************************************
+    *  @brief      Adiciona horas aula semanais ao docente
+    *
+    *  @param      int quantidade de horas a adicionar
+    *
+    ****************************************************************************************/
     void Docente::adicionaHorasAulaSemanais(int val) {
         this->horasAulaSemanais += val;
     }
 
+    /**
+    *****************************************************************************************
+    *  @brief      Adiciona horas aula semestrais ao docente
+    *
+    *  @param      int quantidade de horas a adicionar
+    *
+    ****************************************************************************************/
     void Docente::adicionaHorasAulaSemestrais(int val) {
         this->horasAulaSemestrais += val;
     }
 
+    /**
+    *****************************************************************************************
+    *  @brief      Adiciona horas de orientaçao ao docente
+    *
+    *  @param      int quantidade de horas a adicionar
+    *
+    ****************************************************************************************/
     void Docente::adicionaHorasOrientacao(int val) {
         this->horasOrientacaoSemanais += val;
     }
 
-
+    /**
+    *****************************************************************************************
+    *  @brief      Retorna os dados formatados em CSV para escrita na saida
+    *
+    *  @returns    vector<string> lista de strings para escrita
+    *
+    ****************************************************************************************/
     vector<string> Docente::getCSVData() {
         unsigned long prodQual = 0;
         unsigned long prodUnqual = 0;
