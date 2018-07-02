@@ -14,7 +14,17 @@
 #include "Orientacao.h"
 
 namespace prog3 {
-
+/**
+   *****************************************************************************************
+   *  @brief      Classe de dominio OrientaPos (Orientaçao de Pos Graduaçao
+   *
+   *  @params Docente& Docente responsavel pela orientaçao
+   *  @params int Carga Semanal da orientaçao
+   *  @params Discente& Discente orientado
+   *  @params string Data de ingresso do discente no programa (no formato DD/MM/AAAA)
+   *  @params string Programa de orientaçao do discente
+   *
+   ****************************************************************************************/
     class OrientaPos : public Orientacao {
     private:
         time_t dataIngresso;

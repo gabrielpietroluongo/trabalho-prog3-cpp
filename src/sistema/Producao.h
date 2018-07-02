@@ -15,7 +15,15 @@ namespace prog3 {
 
     //Forward Declaration
     class Docente;
-
+/**
+   *****************************************************************************************
+   *  @brief      Classe de dominio produçao
+   *
+   *  @params Docente& Docente responsavel pela produçao
+   *  @params string Titulo da publicaçao
+   *  @params bool É qualificada?
+   *
+   ****************************************************************************************/
     class Producao {
     private:
         string titulo;

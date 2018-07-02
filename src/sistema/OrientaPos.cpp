@@ -6,7 +6,17 @@
 #include "../exceptions/InvalidDateException.h"
 
 namespace prog3 {
-
+/**
+   *****************************************************************************************
+   *  @brief      Construtor da classe
+   *
+   *  @params Docente& Docente responsavel pela orientaçao
+   *  @params int Carga Semanal da orientaçao
+   *  @params Discente& Discente orientado
+   *  @params string Data de ingresso do discente no programa (no formato DD/MM/AAAA)
+   *  @params string Programa de orientaçao do discente
+   *
+   ****************************************************************************************/
     OrientaPos::OrientaPos(Docente& docente, int cargaSemanal, Discente& discente, string dataIngresso,
                            string programa) : Orientacao(docente, cargaSemanal, discente) {
         this->programa = programa;
@@ -18,6 +28,13 @@ namespace prog3 {
         }
     }
 
+/**
+    *****************************************************************************************
+    *  @brief      Retorna os dados formatados em CSV para escrita na saida
+    *
+    *  @returns    vector<string> lista de strings para escrita
+    *
+    ****************************************************************************************/
     vector<string> OrientaPos::getCSVData() {
         vector<string> vec = {
             this->programa,
