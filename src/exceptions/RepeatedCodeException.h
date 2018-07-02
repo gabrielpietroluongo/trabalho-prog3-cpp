@@ -11,17 +11,29 @@
 #include <string>
 
 using namespace std;
-
+/**
+*****************************************************************************************
+*  @brief     Exception de codigo repetido
+*
+*
+*  @param      const Tipo&          Tipo do exception
+*  @param      const string&        Codigo invalido
+*
+****************************************************************************************/
 class RepeatedCodeException : public std::exception
 {
 public:
-
+/**
+*****************************************************************************************
+*  @enum     Enum de tipos de codigo
+*
+****************************************************************************************/
     enum Tipo
     {
-        DOCENTE,
-        DISCENTE,
-        CURSO,
-        DISCIPLINA
+        DOCENTE,        ///< Docente
+        DISCENTE,       ///< Discente
+        CURSO,          ///< Curso
+        DISCIPLINA      ///< Disciplina
     };
 
     explicit RepeatedCodeException(const Tipo& t, const string& code);
@@ -33,8 +45,8 @@ public:
     }
 
 protected:
-    std::string msg_;
-    Tipo tipo;
+    std::string msg_;           ///< Mensagem de erro
+    Tipo tipo;                  ///< Tipo do erro
 };
 
 

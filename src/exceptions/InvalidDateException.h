@@ -10,7 +10,18 @@
 #include <string>
 
 using namespace std;
-
+/**
+*****************************************************************************************
+*  @brief     Exception de data invalida.
+*
+*
+*  Chamada quando a data de ingresso do discente esta no futuro
+*
+*
+*  @param     const string&         Nome do discente
+*  @param     const string&         Data invalida
+*
+****************************************************************************************/
 class InvalidDateException : public std::exception
 {
 public:

@@ -3,7 +3,15 @@
 //
 
 #include "RepeatedCodeException.h"
-
+/**
+*****************************************************************************************
+*  @brief     Construtor da classe
+*
+*
+*  @param      const Tipo&          Tipo do exception
+*  @param      const string&        Codigo invalido
+*
+****************************************************************************************/
 RepeatedCodeException::RepeatedCodeException(const Tipo& t, const string& code) {
     this->tipo = t;
     switch(this->tipo)

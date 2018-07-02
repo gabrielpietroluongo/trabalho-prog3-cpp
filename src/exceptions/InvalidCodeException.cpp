@@ -4,6 +4,15 @@
 
 #include "InvalidCodeException.h"
 
+/**
+    *****************************************************************************************
+    *  @brief      Construtor da classe
+    *
+    *  @param      const Tipo&               Tipo do codigo inconsistente
+    *  @param      const string&             Codigo inconsistente
+    *  @param      const string&             Nome do objeto de codigo inconsistente
+    *
+    ****************************************************************************************/
 InvalidCodeException::InvalidCodeException(const Tipo& tipo, const string& code_conv, const string& name) {
     this->tipo = tipo;
     switch(this->tipo)

@@ -10,7 +10,14 @@
 #include <string>
 
 using namespace std;
-
+/**
+    *****************************************************************************************
+    *  @brief      Exception de inconsistencias
+    *
+    *  @param      const string& codigo      Codigo inconsistente
+    *  @param      const string& nome        Nome do curso inconsistente
+    *
+    ****************************************************************************************/
 class ClassInconsistencyException : public std::exception
 {
 public:
@@ -25,7 +32,7 @@ public:
 
 protected:
 
-    std::string msg_;
+    std::string msg_;       ///< Mensagem de erro
 };
 
 
