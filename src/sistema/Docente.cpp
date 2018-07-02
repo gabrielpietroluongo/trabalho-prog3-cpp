@@ -22,25 +22,7 @@ namespace prog3 {
     Docente::~Docente() {
 
     }
-
-    void Docente::print() {
-        cout << "Nome: " << this->nome << "\nCodigo: " << this->codigo << "\nDepartamento: " << this->departamento;
-    }
-
-    string Docente::to_string() {
-        string ret = "";
-        ret.append("Nome: ");
-        ret.append(this->nome);
-        ret.append("\nCodigo: ");
-        ret.append(std::to_string(this->codigo));
-        ret.append("\nDepartamento: ");
-        ret.append(this->departamento);
-        return ret;
-    }
-
-    string Docente::getNome() {
-        return this->nome;
-    }
+    
     /**
     *****************************************************************************************
     *  @brief      Adiciona produçao ao docente

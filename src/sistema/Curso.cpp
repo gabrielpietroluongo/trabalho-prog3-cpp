@@ -20,9 +20,6 @@ namespace prog3 {
 
     }
 
-    int Curso::getCodigo() {
-        return this->codigo;
-    }
     /**
      *****************************************************************************************
      *  @brief      Adiciona Discente a lista de Discentes do curso

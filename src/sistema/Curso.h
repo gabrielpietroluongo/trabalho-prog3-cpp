@@ -43,8 +43,8 @@ namespace prog3 {
     public:
         Curso(string = "", int = 0, bool = false);
         ~Curso();
-        int getCodigo();
-        string getNome() {return this->nome; }
+        int getCodigo() { return this->codigo; }
+        string getNome() { return this->nome; }
         void adicionaDiscente(Discente &d);
         void adicionaDisciplina(Disciplina& d);
         void adicionaOrientaGrad(OrientaGrad& o);

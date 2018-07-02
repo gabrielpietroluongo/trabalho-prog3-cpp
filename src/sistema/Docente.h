@@ -39,11 +39,7 @@ namespace prog3 {
 
         ~Docente();
 
-        void print();
-
-        string to_string();
-
-        string getNome();
+        string getNome() { return this->nome; }
 
         string getDepartamento() { return this->departamento; }
 
