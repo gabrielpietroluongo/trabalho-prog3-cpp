@@ -3,13 +3,19 @@
 //
 
 #include "OrientaPos.h"
+#include "../exceptions/InvalidDateException.h"
 
 namespace prog3 {
 
     OrientaPos::OrientaPos(Docente& docente, int cargaSemanal, Discente& discente, string dataIngresso,
                            string programa) : Orientacao(docente, cargaSemanal, discente) {
         this->programa = programa;
+        time_t now = time(NULL);
         this->dataIngresso = cpp_util::parseDate(dataIngresso, cpp_util::DATE_FORMAT_PT_BR_SHORT);
+        double diff = difftime(now, this->dataIngresso);
+        if (diff < 0) {
+            throw InvalidDateException(discente.getNome(), dataIngresso);
+        }
     }
 
     vector<string> OrientaPos::getCSVData() {
