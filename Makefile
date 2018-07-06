@@ -34,4 +34,4 @@ clean:
 	@rm -f -r build bin
 
 run:
-	bin/trabalho
+	@bin/trabalho -d docentes.csv -p producoes.csv -r aulas.csv -c cursos.csv -a discentes.csv -op orientapos.csv -og orientagrad.csv 2>&1
