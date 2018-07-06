@@ -1,7 +1,17 @@
 # Compilador
 CPPC := g++ -std=c++11
 
-all: trabalho
+OUTPUT_DIR_B = build
+OUTPUT_DIR_E = build/exceptions
+OUTPUT_DIR_S = build/sistema
+OUTPUT_DIR_U = build/utils
+
+OUTPUT_DIR_BIN = bin
+
+all: dirs trabalho
+
+dirs:
+	mkdir -p $(OUTPUT_DIR_B) $(OUTPUT_DIR_U) $(OUTPUT_DIR_S) $(OUTPUT_DIR_E) $(OUTPUT_DIR_BIN)
 
 trabalho: exceptions utils sistema
 	$(CPPC) -o trabalho src/main.cpp exceptions.o utils.o sistema.o
