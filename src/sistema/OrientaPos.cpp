@@ -43,7 +43,7 @@ namespace prog3 {
                     return false;
 
             } else {
-                return cpp_util::stringCompare(a.docente->getNome(), b.docente->getNome());
+                return cpp_util::stringCompare(a.discente->getNome(), b.discente->getNome());
             }
         } else {
             return cpp_util::stringCompare(a.programa, b.programa);
