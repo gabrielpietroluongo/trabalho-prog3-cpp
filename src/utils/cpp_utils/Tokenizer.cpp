@@ -26,7 +26,7 @@ const string Tokenizer::next() {
 	// Reads the token from the stream, stopping at the separator, and returns.
 	string token;
 	getline(stream, token, separator);
-	return token;
+	return cpp_util::trim(token);
 }
 
 /* Returns all the remaining tokens as a vector of strings. */

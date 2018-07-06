@@ -14,6 +14,8 @@
 #include <string>
 #include <vector>
 
+#include "StringUtils.h"
+
 namespace cpp_util {
 
 using namespace std;
