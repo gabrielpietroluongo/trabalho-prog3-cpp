@@ -10,24 +10,21 @@ OUTPUT_DIR_BIN = bin
 
 all: dirs trabalho
 
+# Cria os diretórios de saída
 dirs:
 	mkdir -p $(OUTPUT_DIR_B) $(OUTPUT_DIR_U) $(OUTPUT_DIR_S) $(OUTPUT_DIR_E) $(OUTPUT_DIR_BIN)
 
 trabalho: exceptions utils sistema
-	$(CPPC) -o trabalho src/main.cpp exceptions.o utils.o sistema.o
+	$(CPPC) -o bin/trabalho src/main.cpp build/exceptions.o build/utils.o build/sistema.o
 
-trabalho_new: src/exceptions/classinconsistencyexception.o src/exceptions/invalidcodeexception.o src/exceptions/invaliddateexception.o src/exceptions/repeatedcodeexception.o src/utils/argparse.o src/utils/icstream.o src/utils/ocstream.o src/utils/cpp_utils/dateutils.o src/utils/cpp_utils/numberutils.o src/utils/cpp_utils/numpunctptbr.o src/utils/cpp_utils/stringutils.o src/utils/cpp_utils/tokenizer.o src/sistema/atividade.o src/sistema/curso.o src/sistema/discente.o src/sistema/disciplina.o src/sistema/docente.o src/sistema/orientacao.o src/sistema/orientagrad.o src/sistema/orientapos.o src/sistema/producao.o src/sistema/sistema.o
-	$(CPPC) -o trabalho src/main.cpp src/exceptions/classinconsistencyexception.o src/exceptions/invalidcodeexception.o src/exceptions/invaliddateexception.o src/exceptions/repeatedcodeexception.o src/utils/argparse.o src/utils/icstream.o src/utils/ocstream.o src/utils/cpp_utils/dateutils.o src/utils/cpp_utils/numberutils.o src/utils/cpp_utils/numpunctptbr.o src/utils/cpp_utils/stringutils.o src/utils/cpp_utils/tokenizer.o src/sistema/atividade.o src/sistema/curso.o src/sistema/discente.o src/sistema/disciplina.o src/sistema/docente.o src/sistema/orientacao.o src/sistema/orientagrad.o src/sistema/orientapos.o src/sistema/producao.o src/sistema/sistema.o
+exceptions: classinconsistencyexception invalidcodeexception invaliddateexception repeatedcodeexception
+	ld -r -o build/exceptions.o build/exceptions/classinconsistencyexception.o build/exceptions/invalidcodeexception.o build/exceptions/invaliddateexception.o build/exceptions/repeatedcodeexception.o
 
-exceptions: src/exceptions/classinconsistencyexception.o src/exceptions/invalidcodeexception.o src/exceptions/invaliddateexception.o src/exceptions/repeatedcodeexception.o
-	ld -r src/exceptions/classinconsistencyexception.o src/exceptions/invalidcodeexception.o src/exceptions/invaliddateexception.o src/exceptions/repeatedcodeexception.o -o exceptions.o
+utils: argparse icstream ocstream cpp_utils/dateutils cpp_utils/numberutils cpp_utils/numpunctptbr cpp_utils/stringutils cpp_utils/tokenizer
+	ld -r -o build/utils.o build/utils/argparse.o build/utils/icstream.o build/utils/ocstream.o build/utils/dateutils.o build/utils/numberutils.o build/utils/numpunctptbr.o build/utils/stringutils.o build/utils/tokenizer.o
 
-
-utils: src/utils/argparse.o src/utils/icstream.o src/utils/ocstream.o src/utils/cpp_utils/dateutils.o src/utils/cpp_utils/numberutils.o src/utils/cpp_utils/numpunctptbr.o src/utils/cpp_utils/stringutils.o src/utils/cpp_utils/tokenizer.o
-	ld -r -o utils.o src/utils/argparse.o src/utils/icstream.o src/utils/ocstream.o src/utils/cpp_utils/dateutils.o src/utils/cpp_utils/numberutils.o src/utils/cpp_utils/numpunctptbr.o src/utils/cpp_utils/stringutils.o src/utils/cpp_utils/tokenizer.o
-
-sistema: src/sistema/atividade.o src/sistema/curso.o src/sistema/discente.o src/sistema/disciplina.o src/sistema/docente.o src/sistema/orientacao.o src/sistema/orientagrad.o src/sistema/orientapos.o src/sistema/producao.o src/sistema/sistema.o
-	ld -r -o sistema.o src/sistema/atividade.o src/sistema/curso.o src/sistema/discente.o src/sistema/disciplina.o src/sistema/docente.o src/sistema/orientacao.o src/sistema/orientagrad.o src/sistema/orientapos.o src/sistema/producao.o src/sistema/sistema.o
+sistema: atividade curso discente disciplina docente orientacao orientagrad orientapos producao sistema_o
+	ld -r -o build/sistema.o build/sistema/atividade.o build/sistema/curso.o build/sistema/discente.o build/sistema/disciplina.o build/sistema/docente.o build/sistema/orientacao.o build/sistema/orientagrad.o build/sistema/orientapos.o build/sistema/producao.o build/sistema/sistema.o
 
 -include src/exceptions/subdir.mk
 -include src/sistema/subdir.mk
