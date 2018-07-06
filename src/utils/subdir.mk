@@ -26,6 +26,3 @@ cpp_utils/stringutils: src/utils/cpp_utils/StringUtils.cpp src/utils/cpp_utils/S
 
 cpp_utils/tokenizer: src/utils/cpp_utils/Tokenizer.cpp src/utils/cpp_utils/Tokenizer.h
 	$(CPPC) -o build/utils/tokenizer.o -c src/utils/cpp_utils/Tokenizer.cpp
-
-clean:
-	@rm -f build bin

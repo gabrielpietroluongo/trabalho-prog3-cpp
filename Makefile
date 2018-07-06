@@ -29,3 +29,9 @@ sistema: atividade curso discente disciplina docente orientacao orientagrad orie
 -include src/exceptions/subdir.mk
 -include src/sistema/subdir.mk
 -include src/utils/subdir.mk
+
+clean:
+	@rm -f -r build bin
+
+run:
+	bin/trabalho
